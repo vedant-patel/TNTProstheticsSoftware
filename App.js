@@ -32,7 +32,7 @@ function Slider({ id, value, onChange, shiftDown, shiftRight }) {
 
 
 
-function App() {
+function Emgha() {
   const [slider1Value, setSlider1Value] = useState(180);
   const [slider2Value, setSlider2Value] = useState(180);
   const [slider3Value, setSlider3Value] = useState(180);
@@ -189,6 +189,122 @@ function getCookie(name) {
   return cookieValue;
 }
 
+
+const handleClick = () => {
+  console.log("Clicked")
+}
+
+function Button(props) {
+
+  return (
+    <div>
+      <Button onClick={handleClick} text="Click me" link={props.link} />
+      <Link to={props.to}>
+      {/* <button
+        className="Button"
+        onClick={props.onClick}
+        style={buttonStyle}
+      >
+        {props.text}
+      </button> */}
+      </Link>
+    </div>
+  );
+
+  const buttonStyle = {
+    backgroundImage: `url(${props.image})`, // Set the background image dynamically
+    backgroundSize: 'cover', // Optional - adjust this to control how the image is sized
+  };
+
+}
+
+function HomePage() {
+  return (
+    <div>
+      <h1>Triton NeuroTech Neural Prosthetics Testing & Debugging Application</h1>
+      <p>This application is designed to be able to test and debug our external prosthetic hand, allowing visualization of the EMG signals from 
+        our custom armband, classification of the signals based on our machine learning model, and actuation of the hand via an interactive 
+        graphical user interface.</p>
+        <p>This project is hosted by Triton NeuroTech, a student organization at the University of California San Diego.</p>
+    
+        <Button onClick={handleClick} text="Click me" image="hand-actuation-button.png" />
+        <Button onClick={handleClick} text="Click me" image="hand-actuation-button.png" />
+
+
+    </div>
+
+
+  );
+}
+
+function Emgmlsv() {
+  return (
+    <div>
+      <h1>Welcome to the EMG Machine Learning Model and Signal Visualization Page</h1>
+      <p>This is not the home page of our app.</p>
+
+      { <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header> }
+    </div>
+  );
+}
+
+
+function Emgdct() {
+  return (
+    <div>
+      <h1>Welcome to the EMG Machine Learning Model Visualization Page</h1>
+      <p>This is not the home page of my app.</p>
+
+      { <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header> }
+    </div>
+  );
+}
+
+function App() {
+
+  return (
+    
+    <div className="App">
+          
+      <Routes>
+        <Route path='/' element={<HomePage/>} />
+        <Route path='/emgmlsv' element={<Emgmlsv/>} />
+        <Route path='/emgha' element={<Emgha/>} />
+        <Route path='/emgdct' element={<Emgdct/>} />
+      </Routes>
+      
+
+    </div>
+
+    
+  );
+}
 
 export default App;
 
